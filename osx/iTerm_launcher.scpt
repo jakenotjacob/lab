@@ -7,9 +7,12 @@
 -- Note: The amount of steps to make this happen is
 -- stupid. wtf osx.
 
-if application "iTerm" is not running then
-  activate application "iTerm"
-else
+--De-select currently focused application first, otherwise
+--it assumes the focused (activated) app needs access to iTerm...
+--...also avoided by 'Secure Keyboard Entry' setting
+
+--If not running, open iTerm, if running, select it
+activate application "iTerm"
   tell application "iTerm"
     create window with default profile
     activate
